@@ -1,7 +1,7 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import Layout from "./layout/Layout";
-import LoginPage from "./pages/LoginPage";
-import HomePage from "./pages/HomePage";
+import DocumentPage from "./pages/DocumentPage";
+import ValidateLogin from "./pages/ValidateLogin";
 
 export const AppRouter = () => {
   return useRoutes([
@@ -10,14 +10,14 @@ export const AppRouter = () => {
       element: <Layout />,
       children: [
         {
-          path: "login",
-          element: <LoginPage />,
+          path: "document-login",
+          element: <DocumentPage />,
         },
         {
-          path: "home",
-          element: <HomePage />,
+          path: "validate-login",
+          element: <ValidateLogin />,
         },
-        { path: "", element: <Navigate to="/login" /> },
+        { path: "", element: <Navigate to="/document-login" /> },
       ],
     },
   ]);
