@@ -59,3 +59,15 @@
 .without-margin-top {
   margin-top: 0.25rem !important;
 }
+
+p {
+  font-size: 10px;
+}
+
+.accounts {
+  color: #8f8f8f;
+}
+
+.data-accounts {
+  color: #7aa0b6;
+}

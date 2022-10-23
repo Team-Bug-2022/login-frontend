@@ -1,6 +1,6 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import Layout from "./layout/Layout";
-import AuthenticationLogin from "./pages/AuthenticationLogin";
+import HomePage from "./pages/HomePage";
 import DocumentPage from "./pages/DocumentPage";
 import ValidateLoginPage from "./pages/ValidateLoginPage";
 
@@ -19,8 +19,8 @@ export const AppRouter = () => {
           element: <ValidateLoginPage />,
         },
         {
-          path: "authentication-login",
-          element: <AuthenticationLogin />,
+          path: "home-page",
+          element: <HomePage />,
         },
         { path: "", element: <Navigate to="/document-login" /> },
       ],
