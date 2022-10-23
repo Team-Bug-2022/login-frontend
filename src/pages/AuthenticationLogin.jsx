@@ -23,7 +23,7 @@ const AuthenticationLogin = () => {
         ref={webcamVar}
         height={300}
         width={300}
-        screenshotFormat="image/png"
+        screenshotFormat="image/jpeg"
       />
       <br />
       <div class="capture">

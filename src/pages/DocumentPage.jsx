@@ -35,23 +35,22 @@ const DocumentPage = () => {
 
     validateDocument(validateDocumentDto).then(
       (data) => {
-        console.log();
-        if (data) {
-          if (data.loginType) {
-            localStorage.setItem("login-type-BBVA", data.loginType);
+        
+        if (data && data.status === 1) {
+          if (data.data.loginType) {
+            localStorage.setItem("login-type-BBVA", data.data.loginType);
           }
-          if (data.clientName) {
-            localStorage.setItem("client-name-BBVA", data.name);
+          if (data.data.name) {
+            localStorage.setItem("client-name-BBVA", data.data.name);
           }
-          if (data._id) {
-            localStorage.setItem("client-id-BBVA", data._id);
+          if (data.data._id) {
+            localStorage.setItem("client-id-BBVA", data.data._id);
           }
+          navigate("/validate-login", { replace: true });
         }
-        navigate("/validate-login", { replace: true });
       },
       (error) => {
         console.log(error);
-        navigate("/validate-login", { replace: true });
       }
     );
   };

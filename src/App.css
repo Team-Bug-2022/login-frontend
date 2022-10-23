@@ -51,6 +51,11 @@
   padding: 13px 20px;
 }
 
-.capture a {
-  text-decoration: none;
+.webcam {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.without-margin-top {
+  margin-top: 0.25rem !important;
 }
