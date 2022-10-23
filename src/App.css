@@ -44,3 +44,13 @@
 .button-border {
   border-radius: 0rem !important;
 }
+
+.capturePalm {
+  background-color: #1565c0;
+  color: white;
+  padding: 13px 20px;
+}
+
+.capture a {
+  text-decoration: none;
+}

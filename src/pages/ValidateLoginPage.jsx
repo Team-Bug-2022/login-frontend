@@ -2,6 +2,7 @@ import { Button, Grid, TextField, ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import "../App.css";
 import { WhiteFontTheme } from "../components/FontTheme";
+import { AuthenticationLogin } from "../pages/AuthenticationLogin";
 
 const ValidateLoginPage = () => {
   const [loginType, setLogintype] = useState(
