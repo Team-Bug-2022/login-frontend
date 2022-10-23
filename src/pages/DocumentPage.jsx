@@ -33,17 +33,18 @@ const DocumentPage = () => {
       documentNumber: documentNumber,
     };
 
-    localStorage.setItem("document-type-BBVA", documentType);
-    localStorage.setItem("document-number-BBVA", documentNumber);
-    localStorage.setItem("login-type-BBVA", "CLASIC_LOGIN");
     validateDocument(validateDocumentDto).then(
       (data) => {
+        console.log();
         if (data) {
           if (data.loginType) {
             localStorage.setItem("login-type-BBVA", data.loginType);
           }
           if (data.clientName) {
-            localStorage.setItem("client-name-BBVA", data.clientName);
+            localStorage.setItem("client-name-BBVA", data.name);
+          }
+          if (data._id) {
+            localStorage.setItem("client-id-BBVA", data._id);
           }
         }
         navigate("/validate-login", { replace: true });

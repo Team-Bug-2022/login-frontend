@@ -3,7 +3,7 @@ import { useState } from "react";
 import "../App.css";
 import { WhiteFontTheme } from "../components/FontTheme";
 
-const ValidateLogin = () => {
+const ValidateLoginPage = () => {
   const [loginType, setLogintype] = useState(
     localStorage.getItem("login-type-BBVA")
       ? ", " + localStorage.getItem("login-type-BBVA")
@@ -55,4 +55,4 @@ const ValidateLogin = () => {
   );
 };
 
-export default ValidateLogin;
+export default ValidateLoginPage;
