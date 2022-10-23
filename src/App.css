@@ -4,14 +4,13 @@
 }
 
 .card {
-  /*min-width: 275px;*/
   border-radius: 0rem !important;
   color: white !important;
 }
 
 .card-content {
   background-color: #043263;
-  min-height: 40rem;
+  min-height: 60rem;
 }
 
 .card-header {
@@ -69,5 +68,5 @@ p {
 }
 
 .data-accounts {
-  color: #7aa0b6;
+  color: #7aa0b6 !important;
 }

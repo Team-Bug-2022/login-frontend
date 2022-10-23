@@ -19,9 +19,10 @@ export const AppRouter = () => {
           element: <ValidateLoginPage />,
         },
         {
-          path: "home-page",
+          path: "home",
           element: <HomePage />,
         },
+        { path: "*", element: <Navigate to="/document-login" /> },
         { path: "", element: <Navigate to="/document-login" /> },
       ],
     },

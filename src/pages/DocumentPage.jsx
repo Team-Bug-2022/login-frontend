@@ -6,10 +6,10 @@ import {
   ThemeProvider,
 } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../App.css";
 import { documentTypesData } from "../components/DataSelect";
 import { WhiteFontTheme } from "../components/FontTheme";
-import { useNavigate } from "react-router-dom";
 import { validateDocument } from "../services/LoginService";
 
 const DocumentPage = () => {
@@ -35,7 +35,6 @@ const DocumentPage = () => {
 
     validateDocument(validateDocumentDto).then(
       (data) => {
-        
         if (data && data.status === 1) {
           if (data.data.loginType) {
             localStorage.setItem("login-type-BBVA", data.data.loginType);
@@ -91,6 +90,7 @@ const DocumentPage = () => {
               value={documentNumber}
               fullWidth
               onChange={handleChangeDocumentNumber}
+              autoComplete="off"
             />
           </Grid>
         </Grid>

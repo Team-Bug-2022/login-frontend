@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import { Grid, Avatar } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
@@ -6,8 +6,25 @@ import AddIcon from "@mui/icons-material/Add";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "../App.css";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  const clientName = localStorage.getItem("client-name-BBVA")
+    ? ", " + localStorage.getItem("client-name-BBVA")
+    : "";
+
+  const validateClientId = () => {
+    if (!localStorage.getItem("client-token-BBVA")) {
+      navigate("/document-login", { replace: true });
+    }
+  };
+
+  useEffect(() => {
+    validateClientId();
+  // eslint-disable-next-line
+  }, []);
+
   return (
     <>
       <Avatar
@@ -15,9 +32,7 @@ const HomePage = () => {
       >
         <PersonIcon sx={{ width: "50px", height: "50px" }} />
       </Avatar>
-
-      <h3>Bienvenida a BBVA </h3>
-
+      <h3>Bienvenido a BBVA{clientName}</h3>
       <Grid container spacing={3} sx={{ mt: "17px" }}>
         <Grid item xs>
           <Avatar sx={{ m: "auto", bgcolor: "#3F8AC1" }}>
@@ -41,18 +56,16 @@ const HomePage = () => {
       <Grid container sx={{ m: "auto", mt: "25px" }}>
         <ExpandMoreIcon sx={{ m: "auto" }} />
       </Grid>
-      <Grid container sx={{ mt: "17px", bgcolor: "white" }}>
+      <Grid container sx={{ p: "0.5", bgcolor: "white" }}>
         <Grid item xs>
-          <h5 class="accounts">CUENTAS EN PESOS</h5>
-          <h4 class="data-accounts">Cuenta express</h4>
-
-          <p class="accounts">12345</p>
+          <p className="accounts">Cuentas</p>
+          <h4 className="accounts">AHORROS</h4>
+          <h4 className="data-accounts">CTS</h4>
         </Grid>
         <Grid item xs>
-          <h5 class="accounts">$1000.00</h5>
-          <h4 class="accounts">$530.00</h4>
-
-          <p class="accounts">Saldo disponible</p>
+          <p className="accounts">Saldo disponible</p>
+          <h4 className="accounts">S/. 1000.00</h4>
+          <h4 className="data-accounts">S/. 530.00</h4>
         </Grid>
       </Grid>
     </>

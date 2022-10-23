@@ -3,10 +3,12 @@ import { useRef, useState } from "react";
 import Webcam from "react-webcam";
 import "../App.css";
 import { palmarPrintLogin } from "../services/LoginService";
+import { useNavigate } from "react-router-dom";
 
 const PalmPrintLogin = () => {
   const webcamVar = useRef(null);
   const [imgVar, setImgVar] = useState(null);
+  const navigate = useNavigate();
 
   const capture = () => {
     setImgVar(webcamVar.current.getScreenshot());
@@ -22,7 +24,9 @@ const PalmPrintLogin = () => {
         palmarPrintLogin(file).then(
           (data) => {
             if (data && data.status === 1) {
-              console.log("Login exitoso");
+              if (data.data.token)
+                localStorage.setItem("client-token-BBVA", data.data.token);
+              navigate("/home", { replace: true });
             } else {
               console.log("Error en el login");
             }
@@ -41,7 +45,7 @@ const PalmPrintLogin = () => {
           <Webcam
             audio={false}
             ref={webcamVar}
-            width={300}
+            width={280}
             className="webcam"
           />
         </Grid>
@@ -57,7 +61,7 @@ const PalmPrintLogin = () => {
       {imgVar && (
         <>
           <Grid item xs={12} className="margin-bottom">
-            <img id="palm-print" src={imgVar} />
+            <img alt="palm-print" id="palm-print" src={imgVar} />
           </Grid>
           <Button
             size="small"
